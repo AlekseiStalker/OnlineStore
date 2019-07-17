@@ -19,143 +19,86 @@ using OnlineStore.Models.ViewModels;
 namespace OnlineStore.Controllers
 {
     public class HomeController : Controller
-    { 
-        private readonly IUserRepository _userRepository;
+    {  
         private readonly IProductRepository _productRepository;
         private readonly IPurchaseRepository _purchaseRepository;
 
         private readonly ILogger _logger;
           
-        public HomeController(IUserRepository userRepository,
-                              IProductRepository productRepository,
+        public HomeController(IProductRepository productRepository,
                               IPurchaseRepository purchaseHistoryRepository,
                               ILogger<HomeController> logger)
-        {
-            _userRepository = userRepository;
+        { 
             _productRepository = productRepository;
             _purchaseRepository = purchaseHistoryRepository;
-
+            
             _logger = logger;
         }
 
         public IActionResult Index()
         {
-            return View("Register");
+            return View("Home");
         }
         
         [HttpGet]
-        [Authorize]
-        public async Task<IActionResult> Products()
-        { 
-            return View(await _productRepository.GetAllAsync());
-        }
-        [HttpGet]
-        public async Task<IActionResult> PurchaseHistory() //change to filter by current user
+        [Authorize] 
+        public async Task<IActionResult> Products(string filterCategory, string sortOrder)
         {
-            _logger.LogInformation("AAAAAAAAA", "");
-            return View(await _purchaseRepository.GetAllAsync());
-        }
-        [HttpPost]
-        public async Task<IActionResult> Register(RegisterViewModel viewModel)
-        { 
-            if (ModelState.IsValid)
-            {
-                var userExists = await _userRepository.GetByFilterAsync(u => u.Login == viewModel.Email) != null;
-                if (userExists)
-                {
-                    _logger.LogInformation("User already exists! ", "");
-                    return RedirectToAction("Index", "Home");
-                }
-                 
-                User user = new User
-                {
-                    Login = viewModel.Email,
-                    //Password = new Helpers.PasswordEncode().Encoder(viewModel.Password),
-                    Password = viewModel.Password,
-                    Nickname = viewModel.Nickname,
-                    Phone = viewModel.Phone
-                };
-                await _userRepository.InsertAsync(user);
+            ViewData["PriceSort"] = String.IsNullOrEmpty(sortOrder) ? "price_desc" : "price";
+             
+            var products = await _productRepository.GetAllAsync();
 
-                //add singInAsync
+            if (!String.IsNullOrEmpty(filterCategory))
+            { 
+                products = products.Where(c => c.Category.Name == filterCategory);
             }
-            else
+
+            if (!String.IsNullOrEmpty(sortOrder))
             {
-                ViewBag.Message = "Check all filds on correct.";
-                return View(viewModel);
+                switch (sortOrder)
+                {
+                    case "price":
+                        products = products.OrderBy(p => p.Price);
+                        break;
+                    case "price_desc":
+                        products = products.OrderByDescending(p => p.Price);
+                        break;
+                    default: break;
+                }
             }
              
-            _logger.LogInformation("User registred! ", "");
-            return View("Home");
+            return View(products);
         }
 
         [HttpGet]
-        [AllowAnonymous]
-        public IActionResult Login()
+        [Authorize]
+        public async Task<IActionResult> PurchaseHistory()
         {
-            return View();
-        }
+            string userLogin = User.Identity.Name;  
+            return View(await _purchaseRepository.GetListByFilterAsync(userLogin));
+        }  
 
-        [HttpPost]
-        [AllowAnonymous]
-        public async Task<IActionResult> Login(LoginViewModel viewModel)
+        public async Task<IActionResult> Purchase(int? id)
         {
-            if (ModelState.IsValid)
+            int productId = id ?? 0;
+            if (productId == 0)
             {
-                User user = await _userRepository.GetByFilterAsync(
-                                    i => i.Login == viewModel.Email 
-                                      && i.Password == viewModel.Password);//new PasswordEncode().Encoder(model.Password)
-                if (user == null)
-                {
-                    ViewBag.Message = "Unauthorized: ";
-                    return Unauthorized();
-                }
-                else
-                {
-                    var claims = new List<Claim>
-                    {
-                        new Claim(ClaimTypes.Name, viewModel.Email)
-                    };
-
-                    var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-
-
-                    ViewBag.Message = "Val: " + viewModel.RememberMe;
-
-                    var authProperties = new AuthenticationProperties
-                    {
-                        IsPersistent = viewModel.RememberMe, // "Remember Me"  
-                    };
-
-                    await HttpContext.SignInAsync(
-                                        CookieAuthenticationDefaults.AuthenticationScheme,
-                                        new ClaimsPrincipal(claimsIdentity),
-                                        authProperties);
-
-                    return RedirectToAction("Products", "Home");
-                } 
+                return NotFound();
             }
             else
-            {
-                ViewBag.Message = "Username and/or password is incorrect.";
+            { 
+                string userLogin = User.Identity.Name;
+                Product product = await _productRepository.GetByIdAsync(productId);
 
-                return View(viewModel);
-            } 
-        }
+                bool success = await _purchaseRepository.InsertAsync(userLogin, product);
 
-        [HttpPost]
-        [Authorize]
-        public async Task<IActionResult> Logout()
-        {
-            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+                if (!success)
+                {
+                    return BadRequest();
+                }
 
-            return RedirectToAction("Index", "Home");
-        }
-
-        //temp method
-        public async Task<IActionResult> AllUsers()
-        {
-            return View(await _userRepository.GetAllAsync());
-        }
+                return View("SuccessfulPurchase", product);
+            }  
+        } 
     }
 }

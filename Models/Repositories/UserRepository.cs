@@ -28,21 +28,19 @@ namespace OnlineStore.Models.Repositories
             return await _context.User.SingleOrDefaultAsync(filter);
         } 
 
-        public async Task InsertAsync(User user)
+        public async Task<bool> InsertAsync(User user)
         {
             await _context.User.AddAsync(user);
-            await _context.SaveChangesAsync();
+            return await _context.SaveChangesAsync() > 0;
         } 
          
-        public async Task UpdateAsync(User user)
+        public async Task<bool> UpdateAsync(User user)
         {
-            User u = await GetById(user.Id);
-            u.Login = user.Login;
-            u.Password = user.Password;
+            User u = await GetById(user.Id); //may be should find by Login in User.Identity.NAme
             u.Nickname = user.Nickname;
             u.Phone = user.Phone;
 
-            await _context.SaveChangesAsync();
+            return await _context.SaveChangesAsync() > 0;
         }
     }
 }

@@ -15,15 +15,15 @@
 		<div asp-validation-summary="All"></div>
 		<p>
 			<label asp-for="Email">Email:</label>
-			<input asp-for="Email" />
+			<input asp-for="Email" /> 
 		</p>
 		<p>
 			<label asp-for="Password">Password:</label>
-			<input asp-for="Password" />
+			<input asp-for="Password" /> 
 		</p>
 		<p>
 			<label asp-for="ConfirmPassword">ConfirmPassword:</label>
-			<input asp-for="ConfirmPassword" />
+			<input asp-for="ConfirmPassword" /> 
 		</p>
 		<p>
 			<label asp-for="Nickname">Nickname:</label>
@@ -36,7 +36,7 @@
 		<button type="submit">Register</button>
 		<div>
 			<p>
-				Already registered? Go to <a asp-action="Login">Login</a>
+				Already registered? Go to <a asp-action="Login" asp-controller="Account">Log In</a>
 			</p>
 		</div>
 	</form>

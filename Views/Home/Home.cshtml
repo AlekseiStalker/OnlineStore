@@ -15,10 +15,24 @@
 		<h2>Welcome to my store</h2>
 		<div>
 			<div>
+				<a asp-action="Register" asp-controller="Account">Sign Up</a>
+			</div>
+			<div>
+				<a asp-action="Login" asp-controller="Account">Log In</a>
+			</div>
+			<form asp-controller="Account" asp-action="Logout" method="post" role="form">
+				<div>
+					<button type="submit">Log Out</button>
+				</div>
+			</form>
+			<div>
 				<a asp-action="Products">Go to shoping</a>
 			</div>
 			<div>
-				<a asp-action="PurchaseHistory">Go to purchase history</a>
+				<a asp-action="PurchaseHistory">View purchase history</a>
+			</div>
+			<div>
+				<a asp-action="Profile" asp-controller="Account">Profile settings</a>
 			</div>
 		</div>
 	</div> 

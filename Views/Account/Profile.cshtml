@@ -1,0 +1,36 @@
+﻿@model OnlineStore.Models.Data.User
+
+@{
+	ViewData["Title"] = "Profile";
+}
+
+<h2>Profile</h2>
+
+<h4>@ViewData["Info"]</h4>
+
+
+<div>
+	<form asp-action="Profile" method="post">
+		<input asp-for="@Model.Id" type="hidden" />
+		<div>
+			<label>Nickname</label>
+			<div>
+				<input asp-for="@Model.Nickname" />
+				<span asp-validation-for="@Model.Nickname"></span>
+			</div>
+		</div>
+		<div>
+			<label>Phone</label>
+			<div>
+				<input asp-for="@Model.Phone" />
+				<span asp-validation-for="@Model.Phone"></span>
+			</div>
+		</div>
+		<div>
+			<input type="submit" value="Save" />
+			<p>
+				Go to <a asp-action="Index" asp-controller="Home">Home page</a>
+			</p>
+		</div>
+	</form>
+</div>

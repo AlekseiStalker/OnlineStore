@@ -9,8 +9,7 @@ namespace OnlineStore.Models.Data
     {
         public int Id { get; set; }
         public int ProductId { get; set; }
-        public int UserId { get; set; }
-        public int Count { get; set; }
+        public int UserId { get; set; } 
 
         [ForeignKey("ProductId")]
         [InverseProperty("PurchaseHistory")]

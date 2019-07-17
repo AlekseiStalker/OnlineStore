@@ -7,11 +7,31 @@
 <div class="container-fluid">
 	<h4 class="bg-primary p-3 text-white">Products</h4>
 	<table class="table table-striped">
+		<div>
+			<a asp-action="Index" asp-controller="Home">Go to home page</a>
+		</div>
+		<form asp-action="Products" method="get">
+			<div class="form-actions no-color">
+				<p>
+					Filter category:
+					<select name="filterCategory">
+						<option value="">All</option>
+						<option value="Laptops">Laptops</option>
+						<option value="Tablets">Tablets</option>
+						<option value="Smartphones">Smartphones</option>
+					</select> 
+					<input type="submit" value="Search" class="btn btn-default" /> |
+					<a asp-action="Products">Back to Full List</a>
+				</p>
+			</div>
+		</form>
 		<thead>
 			<tr>
 				<th>Product name</th>
-				<th>Price</th>
-				<th>Category</th>@*@Html.DisplayNameFor(model => model.Category)*@
+				<th>
+					<a asp-action="Products" asp-route-sortOrder="@ViewData["PriceSort"]">Price</a>
+				</th>
+				<th>Category</th>
 				<th></th>
 			</tr>
 		</thead>

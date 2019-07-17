@@ -8,7 +8,8 @@ namespace OnlineStore.Models.Interfaces
 {
     public interface IPurchaseRepository
     {
-        Task<IEnumerable<PurchaseHistory>> GetAllAsync();  
-        Task InsertAsync(PurchaseHistory purchaseHistory); 
+        Task<IEnumerable<PurchaseHistory>> GetAllAsync();//delete 
+        Task<IEnumerable<PurchaseHistory>> GetListByFilterAsync(string userLogin);
+        Task<bool> InsertAsync(string userLogin, Product product); 
     }
 }

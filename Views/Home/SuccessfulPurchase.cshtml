@@ -1,0 +1,17 @@
+﻿@model OnlineStore.Models.Data.Product
+
+@{
+    ViewData["Title"] = "SuccessfulPurchase";
+}
+
+<h2>SuccessfulPurchase</h2>
+
+<div>
+	<p>Product "@Model.Name" successfully added to your purchases. </p>
+	<div>
+		<a asp-action="Products" asp-controller="Home">Go to shoping</a>
+	</div>
+	<div>
+		<a asp-action="Index" asp-controller="Home">Go to home page</a>
+	</div>
+</div>

@@ -20,7 +20,7 @@
 				Nickname
 			</th>
 			<th>
-				Count
+				Email
 			</th>
 			<th></th>
 		</tr>
@@ -39,8 +39,8 @@
 				@Html.DisplayFor(modelItem => item.User.Nickname)
 			</td>
 			<td>
-				@Html.DisplayFor(modelItem => item.Count)
-			</td> 
+				@Html.DisplayFor(modelItem => item.User.Login)
+			</td>
 		</tr>
 		}
 	</tbody>

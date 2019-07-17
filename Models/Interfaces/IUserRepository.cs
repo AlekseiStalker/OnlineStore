@@ -11,7 +11,7 @@ namespace OnlineStore.Models.Interfaces
     {
         Task<IEnumerable<User>> GetAllAsync();//for debug purpuse
         Task<User> GetByFilterAsync(Expression<Func<User, bool>> filter);
-        Task InsertAsync(User entity);
-        Task UpdateAsync(User user); 
+        Task<bool> InsertAsync(User user);
+        Task<bool> UpdateAsync(User user); 
     }
 }

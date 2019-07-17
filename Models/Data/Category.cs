@@ -14,7 +14,7 @@ namespace OnlineStore.Models.Data
 
         public int Id { get; set; }
         [Required]
-        [StringLength(50)]
+        [StringLength(32)]
         public string Name { get; set; }
 
         [InverseProperty("Category")]

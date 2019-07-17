@@ -4,6 +4,7 @@ using OnlineStore.Models.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace OnlineStore.Models.Repositories
@@ -16,6 +17,11 @@ namespace OnlineStore.Models.Repositories
         {
             var products = _context.Product.Include(p => p.Category);
             return await products.ToListAsync();
+        }
+
+        public async Task<Product> GetByIdAsync(int id)
+        {
+            return await _context.Product.FindAsync(id);
         }
     }
 }

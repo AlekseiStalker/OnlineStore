@@ -36,7 +36,7 @@ namespace OnlineStore
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                     .AddCookie(options =>
                     { 
-                        options.LoginPath = new PathString("/Home/Login");
+                        options.LoginPath = new PathString("/Account/Login");
                     });
 
             var connection = Configuration["ConnectionStrings:DefaultConnection"];
@@ -77,8 +77,7 @@ namespace OnlineStore
             });
 
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-            loggerFactory.AddDebug();
-
+            loggerFactory.AddDebug(); 
         }
     }
 }

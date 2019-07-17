@@ -42,9 +42,7 @@ namespace OnlineStore.Models.Data
             });
 
             modelBuilder.Entity<PurchaseHistory>(entity =>
-            {
-                entity.Property(e => e.Count).HasDefaultValueSql("((1))");
-
+            { 
                 entity.HasOne(d => d.Product)
                     .WithMany(p => p.PurchaseHistory)
                     .HasForeignKey(d => d.ProductId)
