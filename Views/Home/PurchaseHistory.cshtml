@@ -1,0 +1,48 @@
+﻿
+@model IEnumerable<OnlineStore.Models.Data.PurchaseHistory>
+
+@{
+	ViewData["Title"] = "Purchases";
+}
+
+<h2>PurchaseHistory</h2>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>
+				Product
+			</th>
+			<th>
+				Category
+			</th>
+			<th>
+				Nickname
+			</th>
+			<th>
+				Count
+			</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+		<tr>
+			<td>
+				@Html.DisplayFor(modelItem => item.Product.Name)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Product.Category.Name)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.User.Nickname)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Count)
+			</td> 
+		</tr>
+		}
+	</tbody>
+</table>
+

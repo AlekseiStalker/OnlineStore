@@ -1,0 +1,45 @@
+﻿@model OnlineStore.Models.ViewModels.RegisterViewModel;
+
+@{
+	ViewData["Title"] = "Register";
+}
+
+<h2>Registeration form</h2>
+
+<div>
+	<a asp-action="AllUsers">AllUsersTemp</a>
+</div>
+
+<div>
+	<form asp-action="Register" method="post">
+		<div asp-validation-summary="All"></div>
+		<p>
+			<label asp-for="Email">Email:</label>
+			<input asp-for="Email" />
+		</p>
+		<p>
+			<label asp-for="Password">Password:</label>
+			<input asp-for="Password" />
+		</p>
+		<p>
+			<label asp-for="ConfirmPassword">ConfirmPassword:</label>
+			<input asp-for="ConfirmPassword" />
+		</p>
+		<p>
+			<label asp-for="Nickname">Nickname:</label>
+			<input asp-for="Nickname" />
+		</p>
+		<p>
+			<label asp-for="Phone">Phone:</label>
+			<input asp-for="Phone" />
+		</p>
+		<button type="submit">Register</button>
+		<div>
+			<p>
+				Already registered? Go to <a asp-action="Login">Login</a>
+			</p>
+		</div>
+	</form>
+</div>
+
+

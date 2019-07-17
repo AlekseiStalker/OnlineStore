@@ -1,0 +1,36 @@
+﻿@model IEnumerable<OnlineStore.Models.Data.User>
+
+@{
+	ViewData["Title"] = "AllUsers";
+}
+
+<h2>AllUsers</h2>
+
+<div class="container-fluid">
+	<h4 class="bg-primary p-3 text-white">Products</h4>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>User login</th>
+				<th>Nickname</th>  
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>
+						@Html.DisplayFor(modelItem => item.Login)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Nickname)
+					</td> 
+					<td>
+						<a asp-action="Index">Reg</a>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>
+

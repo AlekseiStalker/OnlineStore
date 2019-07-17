@@ -1,0 +1,27 @@
+﻿@model  OnlineStore.Models.ViewModels.LoginViewModel;
+
+@{
+	ViewData["Title"] = "Login";
+}
+
+<h2>Login</h2>
+
+<div>
+	<form asp-action="Login" method="post">
+		<div asp-validation-summary="All"></div>
+		<p>
+			<label asp-for="Email">Your email:</label>
+			<input asp-for="Email" />
+		</p>
+		<p>
+			<label asp-for="Password">Your password:</label>
+			<input asp-for="Password" />
+		</p>
+		<p>
+			<label asp-for="RememberMe">Remember you?</label>
+			<input type="checkbox" asp-for="RememberMe">
+		</p>
+		<button type="submit">Submit</button>
+	</form>
+</div>
+

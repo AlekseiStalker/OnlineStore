@@ -1,0 +1,39 @@
+﻿@model IEnumerable<OnlineStore.Models.Data.Product>
+
+@{
+	Layout = "_Layout";
+}
+ 
+<div class="container-fluid">
+	<h4 class="bg-primary p-3 text-white">Products</h4>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Product name</th>
+				<th>Price</th>
+				<th>Category</th>@*@Html.DisplayNameFor(model => model.Category)*@
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>
+						@Html.DisplayFor(modelItem => item.Name)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Price)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Category.Name)
+					</td>
+					<td>
+						<a asp-action="Purchase" asp-route-id="@item.Id">By</a>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>
+ 
