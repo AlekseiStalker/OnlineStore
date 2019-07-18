@@ -32,3 +32,4 @@ D:\CHI_Software\MyProjects\OnlineStore\obj\Debug\netcoreapp2.1\Razor\Views\Accou
 D:\CHI_Software\MyProjects\OnlineStore\obj\Debug\netcoreapp2.1\Razor\Views\Account\AllUsers.g.cshtml.cs
 D:\CHI_Software\MyProjects\OnlineStore\obj\Debug\netcoreapp2.1\Razor\Views\Home\SuccessfulPurchase.g.cshtml.cs
 D:\CHI_Software\MyProjects\OnlineStore\obj\Debug\netcoreapp2.1\Razor\Views\Account\Profile.g.cshtml.cs
+D:\CHI_Software\MyProjects\OnlineStore\obj\Debug\netcoreapp2.1\Razor\Views\_ViewStart.g.cshtml.cs

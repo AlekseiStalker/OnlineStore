@@ -1,39 +1,48 @@
 ﻿
 @{
-	Layout = null;
+	ViewData["Title"] = "Home Page";
 }
 
 <!DOCTYPE html>
 <html>
- 
-<head>
-	<meta name="viewport" content="width=device-width" />
-	<title>OnlineStore</title>
-</head>
+  
 <body>
 	<div>
 		<h2>Welcome to my store</h2>
 		<div>
-			<div>
-				<a asp-action="Register" asp-controller="Account">Sign Up</a>
+			@*<div>
+			<a asp-action="Register" asp-controller="Account">Sign Up</a>
+		</div>*@
+			<div class="col-md-4">
+				<h2>Registration</h2>
+				<p>Create your account to view and purchase products. After that you can edit your profile.</p>
+				<p><a class="btn btn-success" asp-action="Register" asp-controller="Account">Sign Up &raquo;</a></p>
 			</div>
-			<div>
+			@*<div>
 				<a asp-action="Login" asp-controller="Account">Log In</a>
+			</div>*@
+			<div class="col-md-4">
+				<h2>Authorization</h2>
+				<p>Already have an account? So what you a waiting? Login now.</p>
+				<p><a  class="btn btn-info" asp-action="Login" asp-controller="Account">Log In &raquo;</a></p>
 			</div>
 			<form asp-controller="Account" asp-action="Logout" method="post" role="form">
 				<div>
-					<button type="submit">Log Out</button>
+					<button type="submit" class="btn btn-default" >Log Out</button>
 				</div>
 			</form>
-			<div>
-				<a asp-action="Products">Go to shoping</a>
-			</div>
-			<div>
-				<a asp-action="PurchaseHistory">View purchase history</a>
-			</div>
-			<div>
-				<a asp-action="Profile" asp-controller="Account">Profile settings</a>
-			</div>
+
+
+
+			@*<div>
+			<a asp-action="Products">Go to shoping</a>
+		</div>
+		<div>
+			<a asp-action="PurchaseHistory">View purchase history</a>
+		</div>
+		<div>
+			<a asp-action="Profile" asp-controller="Account">Profile settings</a>
+		</div>*@
 		</div>
 	</div> 
 </body>

@@ -5,24 +5,24 @@
 }
  
 <div class="container-fluid">
-	<h4 class="bg-primary p-3 text-white">Products</h4>
+	<center><h2 class="bg-primary">Products</h2></center>
 	<table class="table table-striped">
 		<div>
 			<a asp-action="Index" asp-controller="Home">Go to home page</a>
 		</div>
 		<form asp-action="Products" method="get">
-			<div class="form-actions no-color">
-				<p>
+			<div class="nav navbar-nav">
+				<div>
 					Filter category:
 					<select name="filterCategory">
-						<option value="">All</option>
+						<option class="dropdown-toggle" value="">All</option>
 						<option value="Laptops">Laptops</option>
 						<option value="Tablets">Tablets</option>
 						<option value="Smartphones">Smartphones</option>
 					</select> 
 					<input type="submit" value="Search" class="btn btn-default" /> |
 					<a asp-action="Products">Back to Full List</a>
-				</p>
+				</div>
 			</div>
 		</form>
 		<thead>
@@ -49,8 +49,8 @@
 						@Html.DisplayFor(modelItem => item.Category.Name)
 					</td>
 					<td>
-						<a asp-action="Purchase" asp-route-id="@item.Id">By</a>
-					</td>
+						<a class="btn btn-success" asp-action="Purchase" asp-route-id="@item.Id">By</a>
+					</td> 
 				</tr>
 			}
 		</tbody>
