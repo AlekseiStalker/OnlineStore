@@ -75,7 +75,7 @@ using OnlineStore.Models;
             WriteLiteral("</strong> successfully added to your purchases.\r\n\t</div> \r\n\t<div>\r\n\t\t");
             EndContext();
             BeginContext(270, 64, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b9edf556bdb1442b918380ba772d678d", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1174ea42dd434ef8ae8019024c433b3b", async() => {
                 BeginContext(317, 13, true);
                 WriteLiteral("Go to shoping");
                 EndContext();
@@ -99,7 +99,7 @@ using OnlineStore.Models;
             WriteLiteral("\r\n\t</div>\r\n\t<div>\r\n\t\t");
             EndContext();
             BeginContext(355, 63, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ccbcd1ad03cd4ae38602c114d0b51472", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9917afdd7a8d4e8d820861301043d572", async() => {
                 BeginContext(399, 15, true);
                 WriteLiteral("Go to home page");
                 EndContext();
