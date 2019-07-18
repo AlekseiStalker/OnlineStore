@@ -10,6 +10,7 @@ namespace OnlineStore.Models.Repositories
     {
         private OnlineStoreContext _context;
         public ProductRepository(OnlineStoreContext context) => _context = context;
+
         public async Task<IEnumerable<Product>> GetAllAsync()
         {
             var products = _context.Product.Include(p => p.Category);

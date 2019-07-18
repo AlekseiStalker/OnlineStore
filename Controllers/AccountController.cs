@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using OnlineStore.Models.Data;
+using OnlineStore.Models.Helpers;
 using OnlineStore.Models.Interfaces;
 using OnlineStore.Models.ViewModels;
 
@@ -18,7 +19,7 @@ namespace OnlineStore.Controllers
         private readonly IUserRepository _userRepository; 
         private readonly ILogger _logger;
 
-        public AccountController(IUserRepository userRepository, ILogger<HomeController> logger)
+        public AccountController(IUserRepository userRepository, ILogger<AccountController> logger)
         {
             _userRepository = userRepository;
             _logger = logger;
@@ -46,8 +47,7 @@ namespace OnlineStore.Controllers
                 User newUser = new User
                 {
                     Login = viewModel.Email,
-                    //Password = new Helpers.PasswordEncode().Encoder(viewModel.Password),
-                    Password = viewModel.Password,
+                    Password = PasswordEncode.Encoder(viewModel.Password), 
                     Nickname = viewModel.Nickname,
                     Phone = viewModel.Phone
                 };
@@ -84,9 +84,9 @@ namespace OnlineStore.Controllers
         {
             if (ModelState.IsValid)
             {
-                User user = await _userRepository.GetByFilterAsync(
-                                    i => i.Login == viewModel.Email
-                                      && i.Password == viewModel.Password);//new PasswordEncode().Encoder(model.Password)
+                User user = await _userRepository.GetByFilterAsync(u => 
+                                                         u.Login == viewModel.Email
+                                                      && u.Password == PasswordEncode.Encoder(viewModel.Password));
                 if (user == null)
                 {
                     ModelState.AddModelError("", "Username and/or password is incorrect.");
@@ -102,6 +102,7 @@ namespace OnlineStore.Controllers
             return View(viewModel);
         }
 
+        //cookie authentication without ASP.NET Core Identity
         private async Task Authenticate(string userEmail, bool rememberMe = false)
         {
             var claims = new List<Claim> {
