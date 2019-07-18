@@ -14,7 +14,7 @@ namespace OnlineStore.Models.ViewModels
 
         [Required(ErrorMessage = "Password is required.")]
         [StringLength(32, ErrorMessage = "Must be between 3 and 32 characters", MinimumLength = 3)]
-        //[DataType(DataType.Password)]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
 
         [Display(Name = "Remember me")]

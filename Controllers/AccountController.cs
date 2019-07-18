@@ -43,7 +43,7 @@ namespace OnlineStore.Controllers
                 {
                     ModelState.AddModelError("", "User already exists."); 
 
-                    return RedirectToAction("Index", "Home");
+                    return View(viewModel);
                 }
 
                 User newUser = new User
@@ -65,14 +65,13 @@ namespace OnlineStore.Controllers
                 await Authenticate(viewModel.Email);
             }
             else
-            {
-                ModelState.AddModelError("", "Check all filds on correct.");
-
+            { 
                 return View(viewModel);
             }
 
             _logger.LogInformation("User registred! ", "");
-            return View("Home");
+
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpGet]
@@ -133,36 +132,52 @@ namespace OnlineStore.Controllers
 
             return RedirectToAction("Login", "Account");
         }
-         
-        //temp method del
-        public async Task<IActionResult> AllUsers()
-        {
-            return View(await _userRepository.GetAllAsync());
-        }
+
         [HttpGet]
         [Authorize]
         public async Task<IActionResult> Profile()
         {
             string userLogin = User.Identity.Name;
 
-            User user = await _userRepository.GetByFilterAsync(i => i.Login == userLogin);
+            User user = await _userRepository.GetByFilterAsync(u => u.Login == userLogin);
+            if (user == null)
+            {
+                return NotFound();
+            }
 
-            return View(user);
+            UserViewModel viewModel = new UserViewModel {
+                Nickname = user.Nickname,
+                Phone = user.Phone
+            };
+
+            return View(viewModel);
         }
 
         [HttpPost] 
-        public async Task<IActionResult> Profile(User user)
+        public async Task<IActionResult> Profile(UserViewModel user)
         {
-            bool success = await _userRepository.UpdateAsync(user);
-
-            if (!success)
+            if (ModelState.IsValid)
             {
-                return BadRequest();
-            }
+                string userLogin = User.Identity.Name;
 
-            ViewData["Info"] = "Your profile has been successfully changed.";
+                bool success = await _userRepository.UpdateAsync(userLogin, user);
 
-            return View();
+                _logger.LogInformation("SUCCESS! " + success, "");
+
+                if (!success)
+                {
+                    return BadRequest();
+                }
+
+                ViewData["Info"] = "Your profile has been successfully changed.";
+            } 
+            return View(user);
+        }
+         
+        //test method
+        public async Task<IActionResult> AllUsers()
+        {
+            return View(await _userRepository.GetAllAsync());
         }
     }
 }

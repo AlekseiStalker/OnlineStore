@@ -4,16 +4,13 @@
     ViewData["Title"] = "SuccessfulPurchase";
 }
 
-<h2>SuccessfulPurchase</h2>
+<h3>Purchase</h3>
 
 <div>
 	<div class="alert alert-success">
 		Product <strong>@Model.Name</strong> successfully added to your purchases.
 	</div> 
 	<div>
-		<a asp-action="Products" asp-controller="Home">Go to shoping</a>
-	</div>
-	<div>
-		<a asp-action="Index" asp-controller="Home">Go to home page</a>
-	</div>
+		<a asp-action="ProductsList" asp-controller="Product" class="btn btn-link">By more</a>
+	</div> 
 </div>

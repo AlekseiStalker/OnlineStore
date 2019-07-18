@@ -18,18 +18,7 @@ namespace OnlineStore.Models.Repositories
         {
             _context = context;
             _logger = logger;
-        }
-
-        //delete
-        public async Task<IEnumerable<PurchaseHistory>> GetAllAsync()
-        {
-            var purchaseHistory = _context.PurchaseHistory
-                                        .Include(p => p.Product)
-                                            .ThenInclude(c => c.Category)
-                                        .Include(u => u.User);
-
-            return await purchaseHistory.ToListAsync();
-        }
+        }  
 
         public async Task<IEnumerable<PurchaseHistory>> GetListByFilterAsync(string userLogin)
         {
@@ -46,10 +35,10 @@ namespace OnlineStore.Models.Repositories
             return await purchaseHistory.ToListAsync();
         }
 
-        public async Task<bool> InsertAsync(string userLogin, Product product)
+        public async Task<bool> InsertAsync(string userLogin, int productId)
         {
             User user = await _context.User.Where(u => u.Login == userLogin).SingleAsync();  
-            PurchaseHistory purchase = new PurchaseHistory() { UserId = user.Id, ProductId = product.Id };
+            PurchaseHistory purchase = new PurchaseHistory() { UserId = user.Id, ProductId = productId };
              
             await _context.PurchaseHistory.AddAsync(purchase);
              

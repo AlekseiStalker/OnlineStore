@@ -58,8 +58,7 @@ namespace OnlineStore
                 app.UseDeveloperExceptionPage();
             }
             else
-            {
-                app.UseExceptionHandler("/Home/Error");
+            { 
                 app.UseHsts();
             }
 
