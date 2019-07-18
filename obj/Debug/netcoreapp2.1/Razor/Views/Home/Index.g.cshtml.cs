@@ -73,12 +73,12 @@ using OnlineStore.Models;
             WriteLiteral("\r\n<!DOCTYPE html>\r\n<html>\r\n  \r\n");
             EndContext();
             BeginContext(75, 783, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b1eb807add074a0da5c0634409d54fbe", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "48de2912b8554863984bdc931e75f480", async() => {
                 BeginContext(81, 214, true);
                 WriteLiteral("\r\n\t<div>\r\n\t\t<h2>Welcome to my store</h2>\r\n\t\t<div> \r\n\t\t\t<div class=\"col-md-4\">\r\n\t\t\t\t<h2>Registration</h2>\r\n\t\t\t\t<p>Create your account to view and purchase products. After that you can edit your profile.</p>\r\n\t\t\t\t<p>");
                 EndContext();
                 BeginContext(295, 93, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5bd83ee207be42e2bb790916a8f66e67", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8939c1edc13f43cbbc34a158c7c23834", async() => {
                     BeginContext(369, 15, true);
                     WriteLiteral("Sign Up &raquo;");
                     EndContext();
@@ -103,7 +103,7 @@ using OnlineStore.Models;
                 WriteLiteral("</p>\r\n\t\t\t</div> \r\n\t\t\t<div class=\"col-md-4\">\r\n\t\t\t\t<h2>Authorization</h2>\r\n\t\t\t\t<p>Already have an account? So what you a waiting? Login now.</p>\r\n\t\t\t\t<p>");
                 EndContext();
                 BeginContext(539, 87, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6187e2d738b24cfba62c49382b9b9862", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9c2db52ce491411abc3958a48eb50e09", async() => {
                     BeginContext(608, 14, true);
                     WriteLiteral("Log In &raquo;");
                     EndContext();
@@ -128,7 +128,7 @@ using OnlineStore.Models;
                 WriteLiteral("</p>\r\n\t\t\t</div>\r\n\t\t\t");
                 EndContext();
                 BeginContext(646, 182, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "37b3cd93a0d74a57ac4a683663546919", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bfeb08f000f44f01911797cf7657554f", async() => {
                     BeginContext(723, 98, true);
                     WriteLiteral("\r\n\t\t\t\t<div>\r\n\t\t\t\t\t<button type=\"submit\" class=\"btn btn-default\" >Log Out</button>\r\n\t\t\t\t</div>\r\n\t\t\t");
                     EndContext();
