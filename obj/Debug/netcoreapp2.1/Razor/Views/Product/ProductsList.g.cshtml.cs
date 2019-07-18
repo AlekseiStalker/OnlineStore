@@ -85,12 +85,12 @@ using OnlineStore.Models;
             WriteLiteral("</h4>\r\n\t\t");
             EndContext();
             BeginContext(244, 621, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4d2dd06003f84cfebe3ceb711cdbfba7", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4f5d3fb249304af684bd5ac29163876f", async() => {
                 BeginContext(303, 152, true);
                 WriteLiteral("\r\n\t\t\t<div class=\"nav navbar-nav\">\r\n\t\t\t\t<div class=\"form-group\">\r\n\t\t\t\t\tFilter category:\r\n\t\t\t\t\t<select class=\"form-control\" name=\"filterCategory\">\r\n\t\t\t\t\t\t");
                 EndContext();
                 BeginContext(455, 53, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7fb92c7b3038406aa87adc21dd2f8b10", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d45602d0f33e499bb6b932cb96f9bf0b", async() => {
                     BeginContext(496, 3, true);
                     WriteLiteral("All");
                     EndContext();
@@ -113,7 +113,7 @@ using OnlineStore.Models;
                 WriteLiteral("\r\n\t\t\t\t\t\t");
                 EndContext();
                 BeginContext(516, 40, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e1f65c225575487fb90b2a4217f4cc01", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d7b483eb1cab418c883e31de79eb62f7", async() => {
                     BeginContext(540, 7, true);
                     WriteLiteral("Laptops");
                     EndContext();
@@ -135,7 +135,7 @@ using OnlineStore.Models;
                 WriteLiteral("\r\n\t\t\t\t\t\t");
                 EndContext();
                 BeginContext(564, 40, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "50478751af1a4320a2b21dd099b99c3a", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1f9a7e96799946eebc83eadb7939709d", async() => {
                     BeginContext(588, 7, true);
                     WriteLiteral("Tablets");
                     EndContext();
@@ -157,7 +157,7 @@ using OnlineStore.Models;
                 WriteLiteral("\r\n\t\t\t\t\t\t");
                 EndContext();
                 BeginContext(612, 48, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8436de678f844bd39234c888eef37cc8", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7d7ccfa31e9c44099c2577ec55fa28bb", async() => {
                     BeginContext(640, 11, true);
                     WriteLiteral("Smartphones");
                     EndContext();
@@ -179,7 +179,7 @@ using OnlineStore.Models;
                 WriteLiteral("\r\n\t\t\t\t\t</select>\r\n\t\t\t\t\t<div>\r\n\t\t\t\t\t\t<input type=\"submit\" value=\"Search\" class=\"btn btn-default\" /> |\r\n\t\t\t\t\t\t");
                 EndContext();
                 BeginContext(768, 50, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f314dc15abfa47a6bd6c2b332f9483b3", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c3b9c639367143318a89f03d971014c3", async() => {
                     BeginContext(797, 17, true);
                     WriteLiteral("Back to Full List");
                     EndContext();
@@ -223,7 +223,7 @@ using OnlineStore.Models;
             WriteLiteral("\r\n\t\t<thead>\r\n\t\t\t<tr>\r\n\t\t\t\t<th>Product name</th>\r\n\t\t\t\t<th>\r\n\t\t\t\t\t");
             EndContext();
             BeginContext(929, 83, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "db1eb1b7bfa04dbd9eab5843e9976836", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "36f0c1b44f6f4a4e9a461440465b50e0", async() => {
                 BeginContext(1003, 5, true);
                 WriteLiteral("Price");
                 EndContext();
@@ -297,7 +297,7 @@ using OnlineStore.Models;
             WriteLiteral("\r\n\t\t\t\t</td>\r\n\t\t\t\t<td>\r\n\t\t\t\t\t");
             EndContext();
             BeginContext(1373, 79, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ea0199e2c61c406bb37ea074708b38b2", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4238c1438dc046d9b5ecb5550eb28e04", async() => {
                 BeginContext(1446, 2, true);
                 WriteLiteral("By");
                 EndContext();

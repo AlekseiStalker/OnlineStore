@@ -75,7 +75,7 @@ using OnlineStore.Models;
             WriteLiteral("</strong> successfully added to your purchases.\r\n\t</div> \r\n\t<div>\r\n\t\t");
             EndContext();
             BeginContext(260, 86, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8493ebf199ff44e8a5d0b4050fc11d1e", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d368d24923fd48fdbabd6eb14cc114dc", async() => {
                 BeginContext(335, 7, true);
                 WriteLiteral("By more");
                 EndContext();

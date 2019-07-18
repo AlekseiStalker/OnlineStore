@@ -93,7 +93,7 @@ using OnlineStore.Models;
             WriteLiteral("\r\n\t\t\t\t\t</td> \r\n\t\t\t\t\t<td>\r\n\t\t\t\t\t\t");
             EndContext();
             BeginContext(556, 74, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c24b8a10beef4db7b910e920dd92b477", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d2160211bf034665971f3b6fe7f581d8", async() => {
                 BeginContext(606, 20, true);
                 WriteLiteral("Back to registration");
                 EndContext();
