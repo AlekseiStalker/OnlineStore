@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Collections.Generic; 
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization; 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using OnlineStore.Models.Data;
@@ -17,16 +15,15 @@ namespace OnlineStore.Controllers
 {
     public class AccountController : Controller
     { 
-        private readonly IUserRepository _userRepository;
-
+        private readonly IUserRepository _userRepository; 
         private readonly ILogger _logger;
 
-        public AccountController(IUserRepository userRepository,
-                                ILogger<HomeController> logger)
+        public AccountController(IUserRepository userRepository, ILogger<HomeController> logger)
         {
             _userRepository = userRepository;
             _logger = logger;
         }
+
         [HttpGet]
         public IActionResult Register()
         {

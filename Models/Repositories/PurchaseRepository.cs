@@ -1,8 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using OnlineStore.Models.Data;
-using OnlineStore.Models.Interfaces;
-using System;
+using OnlineStore.Models.Interfaces; 
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;

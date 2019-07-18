@@ -1,6 +1,5 @@
 ﻿using System;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore; 
 
 namespace OnlineStore.Models.Data
 {
