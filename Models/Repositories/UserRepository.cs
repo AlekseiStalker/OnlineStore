@@ -5,6 +5,7 @@ using OnlineStore.Models.Interfaces;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using OnlineStore.Models.ViewModels;
 
 namespace OnlineStore.Models.Repositories
 {
@@ -17,11 +18,7 @@ namespace OnlineStore.Models.Repositories
         public async Task<IEnumerable<User>> GetAllAsync()
         {
             return await _context.User.ToListAsync();
-        }
-        public async Task<User> GetById(int id)
-        {
-            return await _context.User.FindAsync(id);
-        }
+        } 
 
         public async Task<User> GetByFilterAsync(Expression<Func<User, bool>> filter)
         { 
@@ -34,11 +31,11 @@ namespace OnlineStore.Models.Repositories
             return await _context.SaveChangesAsync() > 0;
         } 
          
-        public async Task<bool> UpdateAsync(User user)
+        public async Task<bool> UpdateAsync(string userLogin, UserViewModel userViewModel)
         {
-            User u = await GetById(user.Id); //may be should find by Login in User.Identity.NAme
-            u.Nickname = user.Nickname;
-            u.Phone = user.Phone;
+            User user = await _context.User.SingleOrDefaultAsync(u => u.Login == userLogin);
+            user.Nickname = userViewModel.Nickname;
+            user.Phone = userViewModel.Phone;
 
             return await _context.SaveChangesAsync() > 0;
         }

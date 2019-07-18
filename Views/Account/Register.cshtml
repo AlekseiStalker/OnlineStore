@@ -4,46 +4,46 @@
 	ViewData["Title"] = "Register";
 }
 
-<h2>Registeration form</h2>
-
-<div>
-	<a asp-action="AllUsers">Check user list</a>
-</div>
-<div class="row"> 
+<div class="container-fluid">
+	<center><h2 class="bg-primary">Registration form</h2></center>
 	<div>
-		<form class="p-a-1" asp-action="Register" method="post">
-			<div asp-validation-summary="All"></div>
-			<div class="col-md-10">
-				<label class="control-label col-md-2" asp-for="Email">Email:</label>
-				<input class="form-control" asp-for="Email" />
-			</div>
-			<div class="col-md-10">
-				<label class="control-label col-md-2" asp-for="Password">Password:</label>
-				<input class="form-control" asp-for="Password" />
-			</div>
-			<div class="col-md-10">
-				<label class="control-label col-md-2" asp-for="ConfirmPassword">ConfirmPassword:</label>
-				<input class="form-control" asp-for="ConfirmPassword" />
-			</div>
-			<div class="col-md-10">
-				<label class="control-label col-md-2" asp-for="Nickname">Nickname:</label>
-				<input class="form-control" asp-for="Nickname" />
-			</div>
-			<div class="col-md-10">
-				<label class="control-label col-md-2" asp-for="Phone">Phone:</label>
-				<input class="form-control" asp-for="Phone" />
-			</div>
-			<div class="col-md-10">
-				<div class="text-center">
-					<button type="submit" class="btn btn-default">Register</button>
-					<p>
-						Already registered? Go to 
-						<a asp-action="Login" asp-controller="Account" class="btn btn-link">Log In</a>
-					</p>
+		<a asp-action="AllUsers">User list (for test)</a>
+	</div> 
+	<table class="table table-bordered"> 
+		<form asp-action="Register" method="post">
+			<div class="nav navbar-nav">
+				<div asp-validation-summary="All" class="text-danger"></div>
+				<div class="form-group">
+					<label class="control-label" asp-for="Email">Email:</label>
+					<input class="form-control" asp-for="Email" />
+				</div>
+				<div class="form-group">
+					<label class="control-label" asp-for="Password">Password:</label>
+					<input class="form-control" asp-for="Password" />
+				</div>
+				<div class="form-group">
+					<label class="control-label" asp-for="ConfirmPassword">ConfirmPassword:</label>
+					<input class="form-control" asp-for="ConfirmPassword" />
+				</div>
+				<div class="form-group">
+					<label class="control-label" asp-for="Nickname">Nickname:</label>
+					<input class="form-control" asp-for="Nickname" />
+				</div>
+				<div class="form-group">
+					<label class="control-label" asp-for="Phone">Phone:</label>
+					<input class="form-control" asp-for="Phone" />
+				</div>
+				<div>
+					<div class="text-center">
+						<button type="submit" class="btn btn-default">Register</button>
+						<p>
+							Already registered? 
+							<a asp-action="Login" asp-controller="Account" class="btn btn-link">Log In</a>
+						</p>
+					</div>
 				</div>
 			</div>
 		</form>
-	</div>
+	</table>
 </div>
-
 
