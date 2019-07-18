@@ -5,44 +5,46 @@
 	ViewData["Title"] = "Purchases";
 }
 
-<h2>PurchaseHistory</h2>
+<div class="container-fluid">
 
-<table class="table">
-	<thead>
-		<tr>
-			<th>
-				Product
-			</th>
-			<th>
-				Category
-			</th>
-			<th>
-				Nickname
-			</th>
-			<th>
-				Email
-			</th>
-			<th></th>
-		</tr>
-	</thead>
-	<tbody>
-		@foreach (var item in Model)
-		{
-		<tr>
-			<td>
-				@Html.DisplayFor(modelItem => item.Product.Name)
-			</td>
-			<td>
-				@Html.DisplayFor(modelItem => item.Product.Category.Name)
-			</td>
-			<td>
-				@Html.DisplayFor(modelItem => item.User.Nickname)
-			</td>
-			<td>
-				@Html.DisplayFor(modelItem => item.User.Login)
-			</td>
-		</tr>
-		}
-	</tbody>
-</table>
+	<center><h2 class="bg-primary">PurchaseHistory</h2></center>
 
+	<table class="table">
+		<thead>
+			<tr>
+				<th>
+					Product
+				</th>
+				<th>
+					Category
+				</th>
+				<th>
+					Nickname
+				</th>
+				<th>
+					Email
+				</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>
+						@Html.DisplayFor(modelItem => item.Product.Name)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Product.Category.Name)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.User.Nickname)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.User.Login)
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table> 
+</div>
