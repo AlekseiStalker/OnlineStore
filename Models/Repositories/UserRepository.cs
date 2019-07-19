@@ -34,6 +34,13 @@ namespace OnlineStore.Models.Repositories
         public async Task<bool> UpdateAsync(string userLogin, UserViewModel userViewModel)
         {
             User user = await _context.User.SingleOrDefaultAsync(u => u.Login == userLogin);
+
+            if (user.Nickname == userViewModel.Nickname && 
+                user.Phone == userViewModel.Phone)
+            {
+                return true;
+            }
+
             user.Nickname = userViewModel.Nickname;
             user.Phone = userViewModel.Phone;
 

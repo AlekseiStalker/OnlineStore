@@ -151,13 +151,13 @@ namespace OnlineStore.Controllers
         }
 
         [HttpPost] 
-        public async Task<IActionResult> Profile(UserViewModel user)
+        public async Task<IActionResult> Profile(UserViewModel userViewModel)
         {
             if (ModelState.IsValid)
             {
                 string userLogin = User.Identity.Name;
 
-                bool success = await _userRepository.UpdateAsync(userLogin, user);
+                bool success = await _userRepository.UpdateAsync(userLogin, userViewModel);
                  
                 if (!success)
                 {
@@ -166,7 +166,7 @@ namespace OnlineStore.Controllers
 
                 ViewData["Info"] = "Your profile has been successfully changed.";
             } 
-            return View(user);
+            return View(userViewModel);
         }
 
         //test method
