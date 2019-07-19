@@ -22,9 +22,7 @@ namespace OnlineStore.Models.Repositories
         public async Task<IEnumerable<PurchaseHistory>> GetListByFilterAsync(string userLogin)
         {
             User user = await _context.User.AsNoTracking().SingleOrDefaultAsync(u => u.Login == userLogin);
-
-            _logger.LogInformation("userID: " + user.Id, "");
-
+             
             var purchaseHistory = _context.PurchaseHistory.AsNoTracking()
                                             .Include(p => p.Product)
                                                 .ThenInclude(c => c.Category)
