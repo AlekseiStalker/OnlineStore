@@ -20,10 +20,11 @@ namespace OnlineStore.Models.ViewModels
         public string ConfirmPassword { get; set; }
 
         [Required(ErrorMessage = "Nickname is required.")]
+        [StringLength(20, MinimumLength = 3)]
         public string Nickname { get; set; }
 
         [Required(ErrorMessage = "Phone is required.")]
-        [StringLength(18)]
+        [StringLength(18, MinimumLength = 3)]
         public string Phone { get; set; } 
     }
 }

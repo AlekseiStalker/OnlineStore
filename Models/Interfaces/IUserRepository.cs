@@ -1,9 +1,9 @@
 ﻿using System;
-using OnlineStore.Models.Data;
-using OnlineStore.Models.ViewModels;
-using System.Collections.Generic; 
+using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using OnlineStore.Models.Data;
+using OnlineStore.Models.ViewModels;
 
 namespace OnlineStore.Models.Interfaces
 {

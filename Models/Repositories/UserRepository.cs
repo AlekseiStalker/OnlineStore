@@ -15,14 +15,14 @@ namespace OnlineStore.Models.Repositories
 
         public UserRepository(OnlineStoreContext context) => _context = context;
 
-        public async Task<IEnumerable<User>> GetAllAsync()
+        public async Task<IEnumerable<User>> GetAllAsync()// for test
         {
-            return await _context.User.ToListAsync();
-        } 
+            return await _context.User.AsNoTracking().ToListAsync();
+        }
 
         public async Task<User> GetByFilterAsync(Expression<Func<User, bool>> filter)
         { 
-            return await _context.User.SingleOrDefaultAsync(filter);
+            return await _context.User.AsNoTracking().SingleOrDefaultAsync(filter);
         } 
 
         public async Task<bool> InsertAsync(User user)

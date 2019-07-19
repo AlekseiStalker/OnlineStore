@@ -1,10 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
-using OnlineStore.Models.Data;
-using OnlineStore.Models.Interfaces; 
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using OnlineStore.Models.Data;
+using OnlineStore.Models.Interfaces;
 
 namespace OnlineStore.Models.Repositories
 {
@@ -21,11 +21,11 @@ namespace OnlineStore.Models.Repositories
 
         public async Task<IEnumerable<PurchaseHistory>> GetListByFilterAsync(string userLogin)
         {
-            User user = await _context.User.SingleOrDefaultAsync(u => u.Login == userLogin);
+            User user = await _context.User.AsNoTracking().SingleOrDefaultAsync(u => u.Login == userLogin);
 
             _logger.LogInformation("userID: " + user.Id, "");
 
-            var purchaseHistory = _context.PurchaseHistory
+            var purchaseHistory = _context.PurchaseHistory.AsNoTracking()
                                             .Include(p => p.Product)
                                                 .ThenInclude(c => c.Category)
                                             .Include(u => u.User)
@@ -36,7 +36,9 @@ namespace OnlineStore.Models.Repositories
 
         public async Task<bool> InsertAsync(string userLogin, int productId)
         {
-            User user = await _context.User.Where(u => u.Login == userLogin).SingleAsync();  
+            User user = await _context.User.AsNoTracking()
+                                        .Where(u => u.Login == userLogin)
+                                        .SingleAsync();  
             PurchaseHistory purchase = new PurchaseHistory() { UserId = user.Id, ProductId = productId };
              
             await _context.PurchaseHistory.AddAsync(purchase);

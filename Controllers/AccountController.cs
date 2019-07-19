@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic; 
+﻿using System.Collections.Generic; 
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
@@ -74,7 +73,7 @@ namespace OnlineStore.Controllers
         [HttpGet]
         [AllowAnonymous]
         public IActionResult Login()
-        {
+        { 
             return View();
         }
 
@@ -102,7 +101,7 @@ namespace OnlineStore.Controllers
             return View(viewModel);
         }
 
-        //cookie authentication without ASP.NET Core Identity
+        //Implementation of cookie authentication without ASP.NET Core Identity
         private async Task Authenticate(string userEmail, bool rememberMe = false)
         {
             var claims = new List<Claim> {
@@ -159,9 +158,7 @@ namespace OnlineStore.Controllers
                 string userLogin = User.Identity.Name;
 
                 bool success = await _userRepository.UpdateAsync(userLogin, user);
-
-                _logger.LogInformation("SUCCESS! " + success, "");
-
+                 
                 if (!success)
                 {
                     return BadRequest();
@@ -171,7 +168,7 @@ namespace OnlineStore.Controllers
             } 
             return View(user);
         }
-         
+
         //test method
         public async Task<IActionResult> AllUsers()
         {

@@ -34,6 +34,7 @@
 					<li><a class="panel-title" asp-controller="Product" asp-action="PurchaseHistory">Purchase history</a></li>
 					<li><a class="panel-title" asp-controller="Account" asp-action="Profile">Profile settings</a></li>
 				</ul>
+				@await Html.PartialAsync("_LoginPartial")
 			</div>
 		</div>
 	</nav>

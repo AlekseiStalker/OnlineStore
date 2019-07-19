@@ -1,4 +1,5 @@
-﻿using System; 
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
@@ -32,11 +33,14 @@ namespace OnlineStore.Controllers
         {
             ViewData["PriceSort"] = String.IsNullOrEmpty(sortOrder) ? "price_desc" : "price";
 
-            var products = await _productRepository.GetAllAsync();
-
+            IQueryable<Product> products; 
             if (!String.IsNullOrEmpty(filterCategory))
+            { 
+                products = _productRepository.GetListByFilter(c => c.Category.Name == filterCategory);
+            }
+            else
             {
-                products = products.Where(c => c.Category.Name == filterCategory);
+                products = _productRepository.GetAll();
             }
 
             if (!String.IsNullOrEmpty(sortOrder))
@@ -53,7 +57,10 @@ namespace OnlineStore.Controllers
                 }
             }
 
-            return View(products);
+            IEnumerable<Product> productsList = await _productRepository.GetAllAsync(products);
+
+            return View(productsList);          //may be should convert to IEnumerable<ProductViewModel>,
+                                                //but it's expensive
         }
 
         [HttpGet]
@@ -85,7 +92,8 @@ namespace OnlineStore.Controllers
 
             ViewData["Info"] = "Product successfully added to your purchases.";
 
-            return View("SuccessfulPurchase", product);
+            return View("SuccessfulPurchase", product);    //may be should convert to ProductViewModel
+                                                           //to maintain a common style, but it seems strange
         }
     }
 }
