@@ -30,8 +30,8 @@ namespace OnlineStore.Controllers
         [HttpGet]
         [Authorize]
         public async Task<IActionResult> ProductsList(string filterCategory, string sortOrder)
-        {
-            ViewData["PriceSort"] = String.IsNullOrEmpty(sortOrder) ? "price_desc" : "price";
+        { 
+            ViewData["PriceSort"] = sortOrder == "price" ? "price_desc" : "price";
 
             IQueryable<Product> products; 
             if (!String.IsNullOrEmpty(filterCategory))
